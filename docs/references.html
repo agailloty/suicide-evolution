@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Overview of suicide in the world</title>
-  <meta name="description" content="Overview of suicide in the world" />
+  <title>6 References | Overview of suicide in the world</title>
+  <meta name="description" content="6 References | Overview of suicide in the world" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Overview of suicide in the world" />
+  <meta property="og:title" content="6 References | Overview of suicide in the world" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Overview of suicide in the world" />
+  <meta name="twitter:title" content="6 References | Overview of suicide in the world" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="link-between-wealth-and-suicide.html"/>
 
-<link rel="next" href="data-exploration.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -203,313 +203,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Overview of suicide in the world</h1>
-<p class="author"><em>Axel-Cleris Gailloty</em></p>
-<p class="date"><em>2019-05-17</em></p>
-</div>
-<div id="introduction-to-the-project" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction to the project</h1>
-<p><img src="suicide_evol.png" /></p>
-<p>According to the <a href="https://www.who.int/news-room/fact-sheets/detail/suicide">WHO Suicides organization</a>, 800.000 committed suicide in 2018. This means every 40 seconds a person dies by suicide. This number is fortunately dropping. In this kernel I want to explore the evolution of suicide rate using the dataset provided here on Kaggle.</p>
-<p>I’ll be using the powerful R language to do this analysis, my main focus is to understand what affects the suicide rate to decrease.</p>
-<p>Let’s start by loading the packages we’ll be using throughout this study.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">pkg &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;FactoMineR&quot;</span>, <span class="st">&quot;factoextra&quot;</span>, <span class="st">&quot;knitr&quot;</span>, </a>
-<a class="sourceLine" id="cb1-2" title="2">         <span class="st">&quot;kableExtra&quot;</span>, <span class="st">&quot;highcharter&quot;</span>, <span class="st">&quot;ggthemes&quot;</span>, <span class="st">&quot;treemap&quot;</span>, <span class="st">&quot;ggcorrplot&quot;</span>)</a>
-<a class="sourceLine" id="cb1-3" title="3">pkgs &lt;-<span class="st"> </span>pkg[<span class="op">!</span>(pkg <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>()[, <span class="st">&quot;Package&quot;</span>])]</a>
-<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">if</span> (<span class="kw">length</span>(pkgs)) </a>
-<a class="sourceLine" id="cb1-5" title="5">        <span class="kw">install.packages</span>(pkg, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">sapply</span>(pkg, library, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">suicide &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;../data/master.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="co"># Fix the column name of country</span></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="kw">colnames</span>(suicide)[<span class="kw">colnames</span>(suicide) <span class="op">==</span><span class="st"> &quot;ï..country&quot;</span>] &lt;-<span class="st"> &quot;country&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">suicide <span class="op">%&gt;%</span><span class="st"> </span>head  <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span> () <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, <span class="dt">full_width =</span> F)</a></code></pre></div>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:left;">
-sex
-</th>
-<th style="text-align:left;">
-age
-</th>
-<th style="text-align:right;">
-suicides_no
-</th>
-<th style="text-align:right;">
-population
-</th>
-<th style="text-align:right;">
-suicides.100k.pop
-</th>
-<th style="text-align:left;">
-country.year
-</th>
-<th style="text-align:right;">
-HDI.for.year
-</th>
-<th style="text-align:left;">
-gdp_for_year….
-</th>
-<th style="text-align:right;">
-gdp_per_capita….
-</th>
-<th style="text-align:left;">
-generation
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Albania
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:left;">
-15-24 years
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-312900
-</td>
-<td style="text-align:right;">
-6.71
-</td>
-<td style="text-align:left;">
-Albania1987
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-2,156,624,900
-</td>
-<td style="text-align:right;">
-796
-</td>
-<td style="text-align:left;">
-Generation X
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Albania
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:left;">
-35-54 years
-</td>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-308000
-</td>
-<td style="text-align:right;">
-5.19
-</td>
-<td style="text-align:left;">
-Albania1987
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-2,156,624,900
-</td>
-<td style="text-align:right;">
-796
-</td>
-<td style="text-align:left;">
-Silent
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Albania
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:left;">
-female
-</td>
-<td style="text-align:left;">
-15-24 years
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-289700
-</td>
-<td style="text-align:right;">
-4.83
-</td>
-<td style="text-align:left;">
-Albania1987
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-2,156,624,900
-</td>
-<td style="text-align:right;">
-796
-</td>
-<td style="text-align:left;">
-Generation X
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Albania
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:left;">
-75+ years
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-21800
-</td>
-<td style="text-align:right;">
-4.59
-</td>
-<td style="text-align:left;">
-Albania1987
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-2,156,624,900
-</td>
-<td style="text-align:right;">
-796
-</td>
-<td style="text-align:left;">
-G.I. Generation
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Albania
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:left;">
-25-34 years
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-274300
-</td>
-<td style="text-align:right;">
-3.28
-</td>
-<td style="text-align:left;">
-Albania1987
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-2,156,624,900
-</td>
-<td style="text-align:right;">
-796
-</td>
-<td style="text-align:left;">
-Boomers
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Albania
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:left;">
-female
-</td>
-<td style="text-align:left;">
-75+ years
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-35600
-</td>
-<td style="text-align:right;">
-2.81
-</td>
-<td style="text-align:left;">
-Albania1987
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:left;">
-2,156,624,900
-</td>
-<td style="text-align:right;">
-796
-</td>
-<td style="text-align:left;">
-G.I. Generation
-</td>
-</tr>
-</tbody>
-</table>
-<p>To jump in this project it is important that we understand what each columns of the dataset stands for.
-I think only the columns <code>suicide.100k</code>, <code>suicide.no</code> and <code>HDI.for.year</code> are problematic. Let’s explain them :
-<strong>suicide.100k</strong> stands for the number of death by suicide for a total 100.000 deaths.<br />
-<strong>suicide.no</strong> is the number of suicide.<br />
-**HDI.for.year* is the Human Development Index of the year.</p>
+<div id="references" class="section level1">
+<h1><span class="header-section-number">6</span> References</h1>
+<p>We must be careful with the interpretation for two reasons:</p>
+<ul>
+<li><p>For every year we do not have all the countries</p></li>
+<li><p>The nominal GDP per capita increases over time: for example in 1986 Albania had a per capita GDP of about 700 dollars whereas today it is <a href="http://perspective.usherbrooke.ca/bilan/tend/ALB/fr/NY.GDP.PCAP.PP.CD.html">12700</a>.</p></li>
+</ul>
+<p>The results for 2000 are more accurate because all the countries present were able to be represented in each tranche.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="link-between-wealth-and-suicide.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="data-exploration.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

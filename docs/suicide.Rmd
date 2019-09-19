@@ -12,14 +12,20 @@ link-citations: yes
 output_dir: "docs"
 ---
 
+# Introduction to the project
+
+![](suicide_evol.png)
+
 According to the [WHO Suicides organization](https://www.who.int/news-room/fact-sheets/detail/suicide), 800.000 committed suicide in 2018. This means every 40 seconds a person dies by suicide. This number is fortunately dropping. In this kernel I want to explore the evolution of suicide rate using the dataset provided here on Kaggle.  
+
+
 I'll be using the powerful R language to do this analysis, my main focus is to understand what affects the suicide rate to decrease.  
 
 Let's start by loading the packages we'll be using throughout this study.
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE, results= 'hide'}
 pkg <- c("tidyverse", "FactoMineR", "factoextra", "knitr", 
-         "kableExtra", "highcharter", "ggthemes", "treemap")
+         "kableExtra", "highcharter", "ggthemes", "treemap", "ggcorrplot")
 pkgs <- pkg[!(pkg %in% installed.packages()[, "Package"])]
     if (length(pkgs)) 
         install.packages(pkg, dependencies = TRUE)
@@ -144,9 +150,6 @@ There's a statistically significant difference between the two groups (men and w
 
 ## Correlation between pairs of quantitative variables
 
-```{r}
-library(ggcorrplot)
-```
 ```{r}
 options(repr.plot.height = 4, repr.plot.res = 180, repr.plot.width = 6)
 suicide[,sapply(suicide, is.numeric)] %>% 
@@ -409,7 +412,12 @@ labs(title = "Suicides 100 k \n per segment of GDP per capita",
     x = "\n Segment of GDP per capita", y = "Suicides 100 k")
 ```
 
+# References
+
 We must be careful with the interpretation for two reasons:  
-*   For every year we do not have all the countries
-*   The nominal GDP per capita increases over time: for example in 1986 Albania had a per capita GDP of about 700 dollars whereas today it is [12700] (http://perspective.usherbrooke.ca/bilan/tend/ALB/fr/NY.GDP.PCAP.PP.CD.html).
+
+*   For every year we do not have all the countries  
+
+*   The nominal GDP per capita increases over time: for example in 1986 Albania had a per capita GDP of about 700 dollars whereas today it is  [12700](http://perspective.usherbrooke.ca/bilan/tend/ALB/fr/NY.GDP.PCAP.PP.CD.html).  
+
 The results for 2000 are more accurate because all the countries present were able to be represented in each tranche.
