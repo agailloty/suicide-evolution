@@ -42,15 +42,24 @@ suicide %>% head  %>% kable () %>%
   kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
-To jump in this project it is important that we understand what each columns of the dataset stands for. 
-I think only the columns `suicide.100k`, `suicide.no` and `HDI.for.year` are problematic. Let's explain them :
+## Variable definition
+
+Before we go further in this analysis, it is important to know what each column or variable in the dataset stands for. 
+
+
+I think only the columns `suicide.100k`, `suicide.no` and `HDI.for.year` are problematic. Let's explain them :  
+
 **suicide.100k** stands for the number of death by suicide for a total 100.000 deaths.  
+
 **suicide.no** is the number of suicide.  
-**HDI.for.year* is the Human Development Index of the year.
+
+**HDI.for.year** is the Human Development Index of the year.
 
 # Data exploration  
 
 In this section we are going to explore the data in order to find insights.
+
+## Missing values checking and fixing
 
 Do we have any missing data ?
 
@@ -79,8 +88,9 @@ summarize(nb = n()) %>% kable () %>%
 These are the number of occurences of each generation in the dataset.
 
 ```{r}
-hcbar(x = suicide$generation, name = "Génération") %>% 
-hc_add_theme(hc_theme_economist())
+hcbar(x = suicide$generation, name = "Generation") %>% 
+hc_add_theme(hc_theme_economist()) %>%
+  hc_title(text = "Distribution of generations counts ")
 ```
 
 X generation and silent are the most popular. Generation Z is the smallest group.  
@@ -91,8 +101,9 @@ Let's now visualize the age groups
 
 
 ```{r}
-hcbar(x = suicide$age, name = " ge") %>% 
-hc_add_theme(hc_theme_economist())
+hcbar(x = suicide$ag, name = "Age categories") %>% 
+hc_add_theme(hc_theme_economist()) %>%
+  hc_title(text = "Bar chart representing the counts of age category")
 ```
 
 The age groups are all equally distributed. 
@@ -102,8 +113,9 @@ The age groups are all equally distributed.
 How about the the sex group. They both are equally distributed
 
 ```{r}
-hcbar(x = suicide$sex, name = "Sexe") %>% 
-hc_add_theme(hc_theme_economist())
+hcbar(x = suicide$sex, name = "Gender") %>% 
+hc_add_theme(hc_theme_economist()) %>%
+  hc_title(text = "Bar charts of Gender counts")
 ```
 
 ## Data by year  
@@ -117,7 +129,8 @@ hc_add_theme(hc_theme_economist())
 ```
 
 The dataset does not have all the data for each year. Each year varies. For example the last year 2016 has the fewest records. We need to keep this information in mind when we want to interpret the results of the analysis.
-# Visualization
+
+# Data visualization
 
 In this section we are going to visualize the data.
 
@@ -139,6 +152,7 @@ For all the times, all the age groups the suicide rate is higher for men than wo
 This means that the variable `sex` differentiates the population of this dataset. We can check this with an analysis of variance.
 
 ## Analysis of variance (ANOVA)
+
 ```{r}
 temp <- suicide %>% group_by(year,sex, age) %>% 
 summarize(moy_suicide = mean(suicides.100k.pop))
@@ -154,17 +168,22 @@ There's a statistically significant difference between the two groups (men and w
 options(repr.plot.height = 4, repr.plot.res = 180, repr.plot.width = 6)
 suicide[,sapply(suicide, is.numeric)] %>% 
 cor(use = "complete.obs") %>% ggcorrplot(hc.order = TRUE, type = "lower",
-   lab = TRUE)
+   lab = TRUE) + labs(title = "Pearson's correlation of the numeric variables")
 ```
 
 This graph of correlations tells us a lot of things. Let's start with the variables of economic nature such as the HDI (Human Development Index), GDP (Gross Domestic Product).  
-We observe from the graph that the human development index correlates positively with the per capita GDP (0.77), which means that these two variables tend to go in the same direction. GDP correlates positively with the population. . But beware it is only a correlation and this coefficient does not translate a causality. For example, the number of suicide is positively correlated with the country, if we want to summarize it in a fatalistic way then it seems that the more the rich country the more the people commit suicide, which is false. The reason for this correlation is that it is a time series: the number of suicide increases with the growth of the population which itself increases with time, the same goes for the GDP, which increases every year.  
+
+We observe from the graph that the human development index correlates positively with the per capita GDP (0.77), which means that these two variables tend to go in the same direction. GDP correlates positively with the population. . But beware it is only a correlation and this coefficient does not translate a causality. 
+For example, the number of suicide is positively correlated with the country, if we want to summarize it in a fatalistic way then it seems that the more the rich country the more the people commit suicide, which is false. The reason for this correlation is that it is a time series: the number of suicide increases with the growth of the population which itself increases with time, the same goes for the GDP, which increases every year.  
+
 When we express the number of suicides for a population of 10,000, we can clearly see that GDP has a very weak influence.  
 
 ## Let's use the variable GDP for year (gross domestic product of the year)
 A priori this variable is not in a numeric format. Considering the case of Albania in 1987, we have a GDP for men of 15-24 of 2,156,624,900. it does not mean anything because the GDP does not depend on a category of the population. This number is repeated for all age categories.
 
-Thanks to [Google](https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&met_y=ny_gdp_mktp_cd&idim=country:ALB:MKD:MNE&hl=fr&dl=fr) we can see clearly. In 1987, Albania's GDP was about 2.156 billion dollars.
+Thanks to [Google](https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&met_y=ny_gdp_mktp_cd&idim=country:ALB:MKD:MNE&hl=fr&dl=fr) we can see clearly. 
+
+In 1987, Albania's GDP was about 2.156 billion dollars.
 It is therefore concluded that this value is redundant to preserve the integrity of the tabular format of the database because a country has only one GDP while one country can be divided into several categories.
 
 We will therefore correct this variable in order to use it in the following analysis
@@ -267,8 +286,10 @@ highchart() %>%
 Lithuania, South Korea and Suriname have the highest suicide rates in 2014.
 
 # How the suicides rates have evolved ?
+
 Now I want to compare for each available country in the dataset how the suicides rates have evolved during a long period of time.  
 I learn to make the following graph thanks to this [beautiful kernel](https://www.kaggle.com/janiobachmann/price-of-avocados-pattern-recognition-analysis) of [Janio Martinez Bachmann](https://www.kaggle.com/janiobachmann). 
+
 ```{r}
 mixed_df <- suicide %>% group_by(country, year, sex) %>% 
 summarize(nb_occurence = n(), nb_suicide = sum(suicides.100k.pop)) %>% data.frame %>%
@@ -312,7 +333,7 @@ We see on this graphic that th suicides rates of men are twice higher than the w
 
 The women suicides rates in Singapour was really high in 1986 but it drops significantly in 28 years. In Korea we see the inverse (sadly).
 
-# Multivariate Analysis
+# Multivariate Data Analysis
 
 In this section let's plot all the countries in a plane so we can see how closer are countries in terms of GDP per capita, suicides rates, and population.  
 We are going to do so in 1986 and 2014.
@@ -342,7 +363,9 @@ fviz_pca_biplot(res_1986, labelsize = 4, repel = T,
 ```
 
 The first dimension explains 53% of the variability among the countries. It is positively influenced by the 3 variables, but GDP per capita has a stronger influence on this first dimension.   
-The second dimension explains 29% of information and is strongly influenced positively by the population and negatively by suicide.
+
+The second dimension explains 29% of information and is strongly influenced positively by the population and negatively by suicide.  
+
 These two axes allow us to say that a country whose coordinates are located to the right of this graph is a rich country. Similarly a country located at the top is a populated country. 
 If the country is located at the bottom of the graph the higher is the proportion of suicide in that country.  
 
@@ -393,6 +416,7 @@ labs(x = '\n GDP per capita (log)', y = 'Suicides per 100 k',
 ```
 
 There is a change of trend over time. In 1986 the relationship between suicide numbers and national wealth per capita seems to be positive and growing. In 2000 this same relationship becomes slightly decreasing and it seems to increase a little bit in 2014.  
+
 The linear relationship is not clearly stated.  
 
 To further explore this relationship, segment GDP per capita into groups to represent them in a way we can see variability among the group.
@@ -421,3 +445,6 @@ We must be careful with the interpretation for two reasons:
 *   The nominal GDP per capita increases over time: for example in 1986 Albania had a per capita GDP of about 700 dollars whereas today it is  [12700](http://perspective.usherbrooke.ca/bilan/tend/ALB/fr/NY.GDP.PCAP.PP.CD.html).  
 
 The results for 2000 are more accurate because all the countries present were able to be represented in each tranche.
+
+Some visulization techniques inspired from the Kaggle post  
+[Avocados pattern recognition analysis](https://www.kaggle.com/janiobachmann/price-of-avocados-pattern-recognition-analysis)

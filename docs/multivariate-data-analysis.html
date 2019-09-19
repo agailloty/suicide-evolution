@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 How the suicides rates have evolved ? | Overview of suicide in the world</title>
-  <meta name="description" content="4 How the suicides rates have evolved ? | Overview of suicide in the world" />
+  <title>5 Multivariate Data Analysis | Overview of suicide in the world</title>
+  <meta name="description" content="5 Multivariate Data Analysis | Overview of suicide in the world" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 How the suicides rates have evolved ? | Overview of suicide in the world" />
+  <meta property="og:title" content="5 Multivariate Data Analysis | Overview of suicide in the world" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 How the suicides rates have evolved ? | Overview of suicide in the world" />
+  <meta name="twitter:title" content="5 Multivariate Data Analysis | Overview of suicide in the world" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-visualization.html"/>
-<link rel="next" href="multivariate-data-analysis.html"/>
+<link rel="prev" href="how-the-suicides-rates-have-evolved.html"/>
+<link rel="next" href="link-between-wealth-and-suicide.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -208,201 +208,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="how-the-suicides-rates-have-evolved" class="section level1">
-<h1><span class="header-section-number">4</span> How the suicides rates have evolved ?</h1>
-<p>Now I want to compare for each available country in the dataset how the suicides rates have evolved during a long period of time.<br />
-I learn to make the following graph thanks to this <a href="https://www.kaggle.com/janiobachmann/price-of-avocados-pattern-recognition-analysis">beautiful kernel</a> of <a href="https://www.kaggle.com/janiobachmann">Janio Martinez Bachmann</a>.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">mixed_df &lt;-<span class="st"> </span>suicide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country, year, sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb23-2" title="2"><span class="kw">summarize</span>(<span class="dt">nb_occurence =</span> <span class="kw">n</span>(), <span class="dt">nb_suicide =</span> <span class="kw">sum</span>(suicides<span class="fl">.100</span>k.pop)) <span class="op">%&gt;%</span><span class="st"> </span>data.frame <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-3" title="3"><span class="kw">spread_</span>(<span class="dt">key_col =</span> <span class="st">&quot;year&quot;</span>, <span class="dt">value_col =</span> <span class="st">&quot;nb_suicide&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(country, sex, <span class="st">&quot;1986&quot;</span>, <span class="st">&quot;2014&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>na.omit</a></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">colnames</span>(mixed_df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;yr_1986&quot;</span>, <span class="st">&quot;yr_2014&quot;</span>)</a>
-<a class="sourceLine" id="cb24-2" title="2">comparison_mixed_df &lt;-<span class="st"> </span>mixed_df <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb24-3" title="3"><span class="kw">mutate</span>(<span class="dt">difference =</span> yr_<span class="dv">2014</span> <span class="op">-</span><span class="st"> </span>yr_<span class="dv">1986</span>, </a>
-<a class="sourceLine" id="cb24-4" title="4">       <span class="dt">pct =</span> difference<span class="op">/</span>yr_<span class="dv">1986</span><span class="op">*</span><span class="dv">100</span>, </a>
-<a class="sourceLine" id="cb24-5" title="5">       <span class="dt">variation =</span> <span class="kw">ifelse</span>(difference <span class="op">&gt;</span><span class="dv">0</span>, <span class="st">&quot;Positive&quot;</span>, <span class="st">&quot;Negative&quot;</span>))</a></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">head</span>(comparison_mixed_df) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span> () <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, <span class="dt">full_width =</span> F)</a></code></pre></div>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-sex
-</th>
-<th style="text-align:right;">
-yr_1986
-</th>
-<th style="text-align:right;">
-yr_2014
-</th>
-<th style="text-align:right;">
-difference
-</th>
-<th style="text-align:right;">
-pct
-</th>
-<th style="text-align:left;">
-variation
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Antigua and Barbuda
-</td>
-<td style="text-align:left;">
-female
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-NaN
-</td>
-<td style="text-align:left;">
-Negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Antigua and Barbuda
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-NaN
-</td>
-<td style="text-align:left;">
-Negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-female
-</td>
-<td style="text-align:right;">
-32.01
-</td>
-<td style="text-align:right;">
-19.48
-</td>
-<td style="text-align:right;">
--12.53
-</td>
-<td style="text-align:right;">
--39.144017
-</td>
-<td style="text-align:left;">
-Negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:right;">
-120.89
-</td>
-<td style="text-align:right;">
-91.87
-</td>
-<td style="text-align:right;">
--29.02
-</td>
-<td style="text-align:right;">
--24.005294
-</td>
-<td style="text-align:left;">
-Negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-female
-</td>
-<td style="text-align:right;">
-35.38
-</td>
-<td style="text-align:right;">
-34.88
-</td>
-<td style="text-align:right;">
--0.50
-</td>
-<td style="text-align:right;">
--1.413228
-</td>
-<td style="text-align:left;">
-Negative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-male
-</td>
-<td style="text-align:right;">
-140.41
-</td>
-<td style="text-align:right;">
-114.19
-</td>
-<td style="text-align:right;">
--26.22
-</td>
-<td style="text-align:right;">
--18.673884
-</td>
-<td style="text-align:left;">
-Negative
-</td>
-</tr>
-</tbody>
-</table>
-<p>Let’s now use ggplot to plot it.</p>
-<p><img src="suicide_files/figure-html/unnamed-chunk-29-1.png" width="960" /></p>
-<p>Let me give you a simple trick to read this plot : if the red dot is located at the right then the suicide rate dropped of the distance between the red dot and blue dot. You interpret it the same for the blue.
-The blue dot is the suicides rate in 2014, the red the suicides rate in 1986.</p>
-<p>We see on this graphic that th suicides rates of men are twice higher than the women’s (as shown in the x axis).</p>
-<p>The women suicides rates in Singapour was really high in 1986 but it drops significantly in 28 years. In Korea we see the inverse (sadly).</p>
+<div id="multivariate-data-analysis" class="section level1">
+<h1><span class="header-section-number">5</span> Multivariate Data Analysis</h1>
+<p>In this section let’s plot all the countries in a plane so we can see how closer are countries in terms of GDP per capita, suicides rates, and population.<br />
+We are going to do so in 1986 and 2014.</p>
+<div id="in-1986" class="section level2">
+<h2><span class="header-section-number">5.1</span> In 1986</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">pca_data &lt;-<span class="st"> </span>suicide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country, year) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="kw">summarize</span>(<span class="dt">nb_occurence =</span> <span class="kw">n</span>(), <span class="dt">sum_gdp =</span> <span class="kw">sum</span>(gdp), </a>
+<a class="sourceLine" id="cb26-3" title="3">          <span class="dt">population =</span> <span class="kw">sum</span>(population), <span class="dt">suicide =</span> <span class="kw">sum</span>(suicides<span class="fl">.100</span>k.pop),</a>
+<a class="sourceLine" id="cb26-4" title="4">          <span class="dt">gdp_real =</span> sum_gdp<span class="op">/</span>nb_occurence, <span class="dt">gdp_per_capita =</span> gdp_real<span class="op">/</span>population) </a>
+<a class="sourceLine" id="cb26-5" title="5">pca_<span class="dv">1986</span> &lt;-<span class="st"> </span>pca_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1986</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(country, population, suicide, gdp_per_capita) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-6" title="6"><span class="kw">data.frame</span>(<span class="dt">row.names =</span> <span class="st">&quot;country&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">library</span>(FactoMineR)</a></code></pre></div>
+<p><img src="suicide_files/figure-html/unnamed-chunk-34-1.png" width="960" /></p>
+<p>The first dimension explains 53% of the variability among the countries. It is positively influenced by the 3 variables, but GDP per capita has a stronger influence on this first dimension.</p>
+<p>The second dimension explains 29% of information and is strongly influenced positively by the population and negatively by suicide.</p>
+<p>These two axes allow us to say that a country whose coordinates are located to the right of this graph is a rich country. Similarly a country located at the top is a populated country.
+If the country is located at the bottom of the graph the higher is the proportion of suicide in that country.</p>
+</div>
+<div id="in-2015" class="section level2">
+<h2><span class="header-section-number">5.2</span> In 2015</h2>
+<p>Let’s see how the situation of countries has changed in 29 years</p>
+<p><img src="suicide_files/figure-html/unnamed-chunk-37-1.png" width="960" /></p>
+<p>Compared to the results obtained in 1986, the two dimensions have about the same importance. Suicide is not as important as it was in 1986. The direcion of arrows has changed: the more a country is on the right, the higher its suicide rate. The countries on the top right are countries with a large population and a high suicide rate. While the countries at the bottom have a small population but a very high GDP per capita.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="multivariate-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="how-the-suicides-rates-have-evolved.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="link-between-wealth-and-suicide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
