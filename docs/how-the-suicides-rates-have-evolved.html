@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 How the suicides rates have evolved ? | Overview of suicide in the world</title>
+  <meta name="description" content="2 How the suicides rates have evolved ? | Overview of suicide in the world" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 How the suicides rates have evolved ? | Overview of suicide in the world" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 How the suicides rates have evolved ? | Overview of suicide in the world" />
+  
+  
+  
+
+<meta name="author" content="Axel-Cleris Gailloty" />
+
+
+<meta name="date" content="2019-05-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-exploration.html"/>
+<link rel="next" href="multivariate-analysis.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-7.0.1/css/motion.css" rel="stylesheet" />
+<link href="libs/highcharts-7.0.1/css/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="libs/highcharts-7.0.1/highcharts.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-3d.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-more.js"></script>
+<script src="libs/highcharts-7.0.1/modules/stock.js"></script>
+<script src="libs/highcharts-7.0.1/modules/map.js"></script>
+<script src="libs/highcharts-7.0.1/modules/annotations.js"></script>
+<script src="libs/highcharts-7.0.1/modules/boost.js"></script>
+<script src="libs/highcharts-7.0.1/modules/data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drag-panes.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drilldown.js"></script>
+<script src="libs/highcharts-7.0.1/modules/item-series.js"></script>
+<script src="libs/highcharts-7.0.1/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-7.0.1/modules/exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/export-data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/funnel.js"></script>
+<script src="libs/highcharts-7.0.1/modules/heatmap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/treemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sankey.js"></script>
+<script src="libs/highcharts-7.0.1/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-7.0.1/modules/streamgraph.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sunburst.js"></script>
+<script src="libs/highcharts-7.0.1/modules/vector.js"></script>
+<script src="libs/highcharts-7.0.1/modules/wordcloud.js"></script>
+<script src="libs/highcharts-7.0.1/modules/xrange.js"></script>
+<script src="libs/highcharts-7.0.1/modules/tilemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/venn.js"></script>
+<script src="libs/highcharts-7.0.1/modules/gantt.js"></script>
+<script src="libs/highcharts-7.0.1/modules/timeline.js"></script>
+<script src="libs/highcharts-7.0.1/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/motion.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-7.0.1/custom/reset.js"></script>
+<script src="libs/highcharts-7.0.1/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-7.0.1/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.7.0/highchart.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>1</b> Data exploration</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-exploration.html"><a href="data-exploration.html#qualitative-variables-frequencies"><i class="fa fa-check"></i><b>1.1</b> Qualitative variables frequencies</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="data-exploration.html"><a href="data-exploration.html#generation"><i class="fa fa-check"></i><b>1.1.1</b> Génération</a></li>
+<li class="chapter" data-level="1.1.2" data-path="data-exploration.html"><a href="data-exploration.html#age-groups"><i class="fa fa-check"></i><b>1.1.2</b> Age groups</a></li>
+<li class="chapter" data-level="1.1.3" data-path="data-exploration.html"><a href="data-exploration.html#by-sex"><i class="fa fa-check"></i><b>1.1.3</b> By sex</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="data-exploration.html"><a href="data-exploration.html#data-by-year"><i class="fa fa-check"></i><b>1.2</b> Data by year</a></li>
+<li class="chapter" data-level="1.3" data-path="data-exploration.html"><a href="data-exploration.html#suicide-rates-by-sex-and-age-group"><i class="fa fa-check"></i><b>1.3</b> Suicide rates by sex and age group</a></li>
+<li class="chapter" data-level="1.4" data-path="data-exploration.html"><a href="data-exploration.html#analysis-of-variance-anova"><i class="fa fa-check"></i><b>1.4</b> Analysis of variance (ANOVA)</a></li>
+<li class="chapter" data-level="1.5" data-path="data-exploration.html"><a href="data-exploration.html#correlation-between-pairs-of-quantitative-variables"><i class="fa fa-check"></i><b>1.5</b> Correlation between pairs of quantitative variables</a></li>
+<li class="chapter" data-level="1.6" data-path="data-exploration.html"><a href="data-exploration.html#lets-use-the-variable-gdp-for-year-gross-domestic-product-of-the-year"><i class="fa fa-check"></i><b>1.6</b> Let’s use the variable GDP for year (gross domestic product of the year)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="how-the-suicides-rates-have-evolved.html"><a href="how-the-suicides-rates-have-evolved.html"><i class="fa fa-check"></i><b>2</b> How the suicides rates have evolved ?</a></li>
+<li class="chapter" data-level="3" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html"><i class="fa fa-check"></i><b>3</b> Multivariate Analysis</a><ul>
+<li class="chapter" data-level="3.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#in-1986"><i class="fa fa-check"></i><b>3.1</b> In 1986</a></li>
+<li class="chapter" data-level="3.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#in-2015"><i class="fa fa-check"></i><b>3.2</b> In 2015</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="link-between-wealth-and-suicide.html"><a href="link-between-wealth-and-suicide.html"><i class="fa fa-check"></i><b>4</b> Link between wealth and suicide</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Overview of suicide in the world</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-the-suicides-rates-have-evolved" class="section level1">
+<h1><span class="header-section-number">2</span> How the suicides rates have evolved ?</h1>
+<p>Now I want to compare for each available country in the dataset how the suicides rates have evolved during a long period of time.<br />
+I learn to make the following graph thanks to this <a href="https://www.kaggle.com/janiobachmann/price-of-avocados-pattern-recognition-analysis">beautiful kernel</a> of <a href="https://www.kaggle.com/janiobachmann">Janio Martinez Bachmann</a>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">mixed_df &lt;-<span class="st"> </span>suicide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country, year, sex) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="kw">summarize</span>(<span class="dt">nb_occurence =</span> <span class="kw">n</span>(), <span class="dt">nb_suicide =</span> <span class="kw">sum</span>(suicides<span class="fl">.100</span>k.pop)) <span class="op">%&gt;%</span><span class="st"> </span>data.frame <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="kw">spread_</span>(<span class="dt">key_col =</span> <span class="st">&quot;year&quot;</span>, <span class="dt">value_col =</span> <span class="st">&quot;nb_suicide&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(country, sex, <span class="st">&quot;1986&quot;</span>, <span class="st">&quot;2014&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>na.omit</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">colnames</span>(mixed_df) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;yr_1986&quot;</span>, <span class="st">&quot;yr_2014&quot;</span>)</a>
+<a class="sourceLine" id="cb27-2" title="2">comparison_mixed_df &lt;-<span class="st"> </span>mixed_df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="kw">mutate</span>(<span class="dt">difference =</span> yr_<span class="dv">2014</span> <span class="op">-</span><span class="st"> </span>yr_<span class="dv">1986</span>, </a>
+<a class="sourceLine" id="cb27-4" title="4">       <span class="dt">pct =</span> difference<span class="op">/</span>yr_<span class="dv">1986</span><span class="op">*</span><span class="dv">100</span>, </a>
+<a class="sourceLine" id="cb27-5" title="5">       <span class="dt">variation =</span> <span class="kw">ifelse</span>(difference <span class="op">&gt;</span><span class="dv">0</span>, <span class="st">&quot;Positive&quot;</span>, <span class="st">&quot;Negative&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">head</span>(comparison_mixed_df) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span> () <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>, <span class="dt">full_width =</span> F)</a></code></pre></div>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+sex
+</th>
+<th style="text-align:right;">
+yr_1986
+</th>
+<th style="text-align:right;">
+yr_2014
+</th>
+<th style="text-align:right;">
+difference
+</th>
+<th style="text-align:right;">
+pct
+</th>
+<th style="text-align:left;">
+variation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Antigua and Barbuda
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Antigua and Barbuda
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:right;">
+32.01
+</td>
+<td style="text-align:right;">
+19.48
+</td>
+<td style="text-align:right;">
+-12.53
+</td>
+<td style="text-align:right;">
+-39.144017
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+120.89
+</td>
+<td style="text-align:right;">
+91.87
+</td>
+<td style="text-align:right;">
+-29.02
+</td>
+<td style="text-align:right;">
+-24.005294
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:right;">
+35.38
+</td>
+<td style="text-align:right;">
+34.88
+</td>
+<td style="text-align:right;">
+-0.50
+</td>
+<td style="text-align:right;">
+-1.413228
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:right;">
+140.41
+</td>
+<td style="text-align:right;">
+114.19
+</td>
+<td style="text-align:right;">
+-26.22
+</td>
+<td style="text-align:right;">
+-18.673884
+</td>
+<td style="text-align:left;">
+Negative
+</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s now use ggplot to plot it.</p>
+<p><img src="suicide_files/figure-html/unnamed-chunk-30-1.png" width="960" /></p>
+<p>Let me give you a simple trick to read this plot : if the red dot is located at the right then the suicide rate dropped of the distance between the red dot and blue dot. You interpret it the same for the blue.
+The blue dot is the suicides rate in 2014, the red the suicides rate in 1986.</p>
+<p>We see on this graphic that th suicides rates of men are twice higher than the women’s (as shown in the x axis).</p>
+<p>The women suicides rates in Singapour was really high in 1986 but it drops significantly in 28 years. In Korea we see the inverse (sadly).</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-exploration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multivariate-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

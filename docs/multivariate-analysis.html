@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Multivariate Analysis | Overview of suicide in the world</title>
+  <meta name="description" content="3 Multivariate Analysis | Overview of suicide in the world" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Multivariate Analysis | Overview of suicide in the world" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Multivariate Analysis | Overview of suicide in the world" />
+  
+  
+  
+
+<meta name="author" content="Axel-Cleris Gailloty" />
+
+
+<meta name="date" content="2019-05-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="how-the-suicides-rates-have-evolved.html"/>
+<link rel="next" href="link-between-wealth-and-suicide.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-7.0.1/css/motion.css" rel="stylesheet" />
+<link href="libs/highcharts-7.0.1/css/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="libs/highcharts-7.0.1/highcharts.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-3d.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-more.js"></script>
+<script src="libs/highcharts-7.0.1/modules/stock.js"></script>
+<script src="libs/highcharts-7.0.1/modules/map.js"></script>
+<script src="libs/highcharts-7.0.1/modules/annotations.js"></script>
+<script src="libs/highcharts-7.0.1/modules/boost.js"></script>
+<script src="libs/highcharts-7.0.1/modules/data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drag-panes.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drilldown.js"></script>
+<script src="libs/highcharts-7.0.1/modules/item-series.js"></script>
+<script src="libs/highcharts-7.0.1/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-7.0.1/modules/exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/export-data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/funnel.js"></script>
+<script src="libs/highcharts-7.0.1/modules/heatmap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/treemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sankey.js"></script>
+<script src="libs/highcharts-7.0.1/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-7.0.1/modules/streamgraph.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sunburst.js"></script>
+<script src="libs/highcharts-7.0.1/modules/vector.js"></script>
+<script src="libs/highcharts-7.0.1/modules/wordcloud.js"></script>
+<script src="libs/highcharts-7.0.1/modules/xrange.js"></script>
+<script src="libs/highcharts-7.0.1/modules/tilemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/venn.js"></script>
+<script src="libs/highcharts-7.0.1/modules/gantt.js"></script>
+<script src="libs/highcharts-7.0.1/modules/timeline.js"></script>
+<script src="libs/highcharts-7.0.1/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/motion.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-7.0.1/custom/reset.js"></script>
+<script src="libs/highcharts-7.0.1/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-7.0.1/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.7.0/highchart.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>1</b> Data exploration</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-exploration.html"><a href="data-exploration.html#qualitative-variables-frequencies"><i class="fa fa-check"></i><b>1.1</b> Qualitative variables frequencies</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="data-exploration.html"><a href="data-exploration.html#generation"><i class="fa fa-check"></i><b>1.1.1</b> Génération</a></li>
+<li class="chapter" data-level="1.1.2" data-path="data-exploration.html"><a href="data-exploration.html#age-groups"><i class="fa fa-check"></i><b>1.1.2</b> Age groups</a></li>
+<li class="chapter" data-level="1.1.3" data-path="data-exploration.html"><a href="data-exploration.html#by-sex"><i class="fa fa-check"></i><b>1.1.3</b> By sex</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="data-exploration.html"><a href="data-exploration.html#data-by-year"><i class="fa fa-check"></i><b>1.2</b> Data by year</a></li>
+<li class="chapter" data-level="1.3" data-path="data-exploration.html"><a href="data-exploration.html#suicide-rates-by-sex-and-age-group"><i class="fa fa-check"></i><b>1.3</b> Suicide rates by sex and age group</a></li>
+<li class="chapter" data-level="1.4" data-path="data-exploration.html"><a href="data-exploration.html#analysis-of-variance-anova"><i class="fa fa-check"></i><b>1.4</b> Analysis of variance (ANOVA)</a></li>
+<li class="chapter" data-level="1.5" data-path="data-exploration.html"><a href="data-exploration.html#correlation-between-pairs-of-quantitative-variables"><i class="fa fa-check"></i><b>1.5</b> Correlation between pairs of quantitative variables</a></li>
+<li class="chapter" data-level="1.6" data-path="data-exploration.html"><a href="data-exploration.html#lets-use-the-variable-gdp-for-year-gross-domestic-product-of-the-year"><i class="fa fa-check"></i><b>1.6</b> Let’s use the variable GDP for year (gross domestic product of the year)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="how-the-suicides-rates-have-evolved.html"><a href="how-the-suicides-rates-have-evolved.html"><i class="fa fa-check"></i><b>2</b> How the suicides rates have evolved ?</a></li>
+<li class="chapter" data-level="3" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html"><i class="fa fa-check"></i><b>3</b> Multivariate Analysis</a><ul>
+<li class="chapter" data-level="3.1" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#in-1986"><i class="fa fa-check"></i><b>3.1</b> In 1986</a></li>
+<li class="chapter" data-level="3.2" data-path="multivariate-analysis.html"><a href="multivariate-analysis.html#in-2015"><i class="fa fa-check"></i><b>3.2</b> In 2015</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="link-between-wealth-and-suicide.html"><a href="link-between-wealth-and-suicide.html"><i class="fa fa-check"></i><b>4</b> Link between wealth and suicide</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Overview of suicide in the world</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="multivariate-analysis" class="section level1">
+<h1><span class="header-section-number">3</span> Multivariate Analysis</h1>
+<p>In this section let’s plot all the countries in a plane so we can see how closer are countries in terms of GDP per capita, suicides rates, and population.<br />
+We are going to do so in 1986 and 2014.</p>
+<div id="in-1986" class="section level2">
+<h2><span class="header-section-number">3.1</span> In 1986</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">pca_data &lt;-<span class="st"> </span>suicide <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(country, year) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="kw">summarize</span>(<span class="dt">nb_occurence =</span> <span class="kw">n</span>(), <span class="dt">sum_gdp =</span> <span class="kw">sum</span>(gdp), </a>
+<a class="sourceLine" id="cb29-3" title="3">          <span class="dt">population =</span> <span class="kw">sum</span>(population), <span class="dt">suicide =</span> <span class="kw">sum</span>(suicides<span class="fl">.100</span>k.pop),</a>
+<a class="sourceLine" id="cb29-4" title="4">          <span class="dt">gdp_real =</span> sum_gdp<span class="op">/</span>nb_occurence, <span class="dt">gdp_per_capita =</span> gdp_real<span class="op">/</span>population) </a>
+<a class="sourceLine" id="cb29-5" title="5">pca_<span class="dv">1986</span> &lt;-<span class="st"> </span>pca_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1986</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(country, population, suicide, gdp_per_capita) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-6" title="6"><span class="kw">data.frame</span>(<span class="dt">row.names =</span> <span class="st">&quot;country&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">library</span>(FactoMineR)</a></code></pre></div>
+<p><img src="suicide_files/figure-html/unnamed-chunk-35-1.png" width="960" /></p>
+<p>The first dimension explains 53% of the variability among the countries. It is positively influenced by the 3 variables, but GDP per capita has a stronger influence on this first dimension.<br />
+The second dimension explains 29% of information and is strongly influenced positively by the population and negatively by suicide.
+These two axes allow us to say that a country whose coordinates are located to the right of this graph is a rich country. Similarly a country located at the top is a populated country.
+If the country is located at the bottom of the graph the higher is the proportion of suicide in that country.</p>
+</div>
+<div id="in-2015" class="section level2">
+<h2><span class="header-section-number">3.2</span> In 2015</h2>
+<p>Let’s see how the situation of countries has changed in 29 years</p>
+<p><img src="suicide_files/figure-html/unnamed-chunk-38-1.png" width="960" /></p>
+<p>Compared to the results obtained in 1986, the two dimensions have about the same importance. Suicide is not as important as it was in 1986. The direcion of arrows has changed: the more a country is on the right, the higher its suicide rate. The countries on the top right are countries with a large population and a high suicide rate. While the countries at the bottom have a small population but a very high GDP per capita.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="how-the-suicides-rates-have-evolved.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="link-between-wealth-and-suicide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
